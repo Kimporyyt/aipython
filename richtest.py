@@ -5,11 +5,17 @@ from rich.text import Text
 
 console = Console()
 
+def print_intro():
+    intro_text = Text()
+    intro_text.append("안녕하세요! 🐾\n", style="bold magenta")
+    intro_text.append("동물 친구들을 만날 준비 되셨나요?\n", style="cyan")
+    intro_text.append("숫자를 골라 귀여운 친구들을 불러보세요! 😸🐶🐰\n", style="green")
+    console.print(Panel(intro_text, title="🎀 Welcome 🎀", border_style="bright_blue"))
+
 def print_animal(animal, title):
     panel_text = "\n".join(animal)
     console.print(Panel(panel_text, title=title, subtitle="🐾 반복 출력 5회", expand=False, border_style="magenta"))
-    print()  
-
+    print()
 
 cat = [
     " /\\_/\\  ",
@@ -42,6 +48,10 @@ def play(n):
         print("[bold red]⚠️ 잘못된 번호입니다. 1~3 중에서 선택해주세요.[/bold red]\n")
 
 
+
+print_intro()
+
+
 while True:
     print("[bold cyan]그림 출력 프로그램[/bold cyan]")
     print("[green]=====================[/green]")
@@ -59,7 +69,7 @@ while True:
         continue
 
     if n == 0:
-        print("[bold yellow]프로그램을 종료합니다.[/bold yellow]")
+        print("[bold yellow]프로그램을 종료합니다. 다음에 또 만나요! 👋[/bold yellow]")
         break
 
     play(n)
